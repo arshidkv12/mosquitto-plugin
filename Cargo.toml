@@ -1,0 +1,16 @@
+[package]
+name = "my_extension"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+"mosquitto-sys" = {path = "/Users/arshid/Downloads/mosquitto-sys-master"}
+
+[lib]
+name = "my_extension"
+crate-type = ["cdylib"]
+
