@@ -8,7 +8,10 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+diesel = "2.0.3"
+dotenv = "0.15.0"
 "mosquitto-sys" = {path = "/Users/arshid/Downloads/mosquitto-sys-master"}
+mysql = "23.0.1"
 
 [lib]
 name = "my_extension"
