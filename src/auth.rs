@@ -37,10 +37,18 @@ pub extern "C" fn basic_auth_callback(
 ) -> c_int{
     unsafe{
         let ed =  &mut *(event_data as *mut mosquitto_evt_basic_auth);
-        // let username = std::ffi::CStr::from_ptr(ed.username);
-        let _username = mosquitto_client_username(ed.client);
-        let username = std::ffi::CStr::from_ptr(_username);
-        let password = std::ffi::CStr::from_ptr(ed.password);
+
+        let _username = ed.username.as_ref();
+        let username = match _username {
+            Some(v) => std::ffi::CStr::from_ptr(v),
+            None => return MOSQ_ERR_AUTH
+        };
+        
+        let _password = ed.password.as_ref();
+        let password = match _password {
+            Some(v) => std::ffi::CStr::from_ptr(v),
+            None => return MOSQ_ERR_AUTH
+        };
 
         let pool: Pool = db::connect();
         let mut conn = pool.get_conn().expect("Failed to get database connection");
@@ -94,7 +102,6 @@ pub extern "C" fn acl_check_callback(
         let query = " 
                     SELECT id, username, topic, rw FROM acls 
                     WHERE username = :username AND topic = :topic
-                    LIMIT 1
                 ";
         let result = conn.exec_map(
             query,params!{ 
@@ -106,27 +113,18 @@ pub extern "C" fn acl_check_callback(
             },
         );
 
-        let _f  = result.as_ref().to_owned();
-        match _f {
-            Ok(v) =>{
-                eprintln!("+++==={:?}", v[0].username);
-            },
-            Err(_err) => {
+        let data = result.unwrap();
+        if data.len() > 0 {
+            let id = data.get(0).unwrap().id;
+            let username = data.get(0).unwrap().username.as_str();
+            let topic = data.get(0).unwrap().username.as_str();
+            let rw = data.get(0).unwrap().rw;
+            if rw > 0{
+                return MOSQ_ERR_SUCCESS;
             }
+            return MOSQ_ERR_ACL_DENIED;
         }
-        
-        match result {
-            Ok(val) => {
-                if val.len() > 0 { 
-                    MOSQ_ERR_SUCCESS
-                }else{ 
-                    MOSQ_ERR_ACL_DENIED
-                }
-            },
-            Err(_err) => {
-                MOSQ_ERR_ACL_DENIED
-            }
-        }
+        return MOSQ_ERR_ACL_DENIED;
         
     }
 
