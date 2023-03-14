@@ -26,7 +26,7 @@ struct Acl {
     id: u64,
     username: String,
     topic: String,
-    rw: u64,
+    rw: i32,
 }
 
 
@@ -119,7 +119,7 @@ pub extern "C" fn acl_check_callback(
             let username = data.get(0).unwrap().username.as_str();
             let topic = data.get(0).unwrap().username.as_str();
             let rw = data.get(0).unwrap().rw;
-            if rw > 0{
+            if rw >= ed.access{
                 return MOSQ_ERR_SUCCESS;
             }
             return MOSQ_ERR_ACL_DENIED;
