@@ -2,6 +2,12 @@
 name = "mosquitto-auth"
 version = "0.1.0"
 edition = "2021"
+authors = ["Arshid"]
+description = "Plugin for mosquitto authentication"
+documentation = "https://github.com/arshidkv12/mosquitto-plugin"
+homepage = "https://github.com/arshidkv12/mosquitto-plugin"
+repository = "https://github.com/arshidkv12/mosquitto-plugin"
+license = "MIT"
 build = "build.rs"
 
 
