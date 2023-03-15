@@ -4,7 +4,7 @@ mod db;
 mod constants;
 
 use std::ffi::{c_int, c_void};
-use mosquitto_sys::{
+use mosquitto_io::{
     mosquitto_evt_basic_auth, 
     mosquitto_client_username,
     mosquitto_evt_acl_check

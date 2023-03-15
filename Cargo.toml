@@ -1,5 +1,5 @@
 [package]
-name = "my_extension"
+name = "mosquitto-auth"
 version = "0.1.0"
 edition = "2021"
 build = "build.rs"
@@ -10,10 +10,9 @@ build = "build.rs"
 [dependencies]
 dotenv = "0.15.0"
 lazy_static = "1.4.0"
-"mosquitto-sys" = {path = "/Users/arshid/Downloads/mosquitto-sys-master"}
+mosquitto-io = "0.1.0"
 mysql = "23.0.1"
 
 [lib]
-name = "my_extension"
 crate-type = ["cdylib"]
 

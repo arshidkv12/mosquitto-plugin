@@ -5,7 +5,7 @@ mod auth;
 mod constants;
 
 use std::ffi::{c_int, c_void};
-use mosquitto_sys::{
+use mosquitto_io::{
      mosquitto_callback_register, 
      mosquitto_callback_unregister, 
      mosquitto_plugin_id_t, 
