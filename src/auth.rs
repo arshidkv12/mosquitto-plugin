@@ -9,9 +9,10 @@ use mosquitto_sys::{
     mosquitto_client_username,
     mosquitto_evt_acl_check
 };
-use mysql::{ Pool, params };
+use mysql::{ params };
 use mysql::prelude::Queryable;
 use constants::*;
+
 
 #[allow(dead_code)]
 #[derive(Debug)]
@@ -50,8 +51,7 @@ pub extern "C" fn basic_auth_callback(
             None => return MOSQ_ERR_AUTH
         };
 
-        let pool: Pool = db::connect();
-        let mut conn = pool.get_conn().expect("Failed to get database connection");
+        let mut conn = db::get_conn();
         let query = "
                     SELECT id, username FROM users 
                     WHERE username = :username AND password = :password
@@ -97,8 +97,7 @@ pub extern "C" fn acl_check_callback(
         let username = std::ffi::CStr::from_ptr(_username); 
         let topic = std::ffi::CStr::from_ptr(ed.topic); 
 
-        let pool: Pool = db::connect();
-        let mut conn = pool.get_conn().expect("Failed to get database connection");
+        let mut conn = db::get_conn();
         let query = " 
                     SELECT id, username, topic, rw FROM acls 
                     WHERE username = :username AND topic = :topic

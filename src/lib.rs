@@ -11,7 +11,11 @@ use mosquitto_sys::{
      mosquitto_plugin_id_t, 
      mosquitto_opt
 };
-use constants::*;
+use constants::{
+    MOSQ_ERR_SUCCESS,
+    MOSQ_EVT_BASIC_AUTH,
+    MOSQ_EVT_ACL_CHECK
+};
 use auth::{
     basic_auth_callback, 
     acl_check_callback

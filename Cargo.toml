@@ -9,6 +9,7 @@ build = "build.rs"
 
 [dependencies]
 dotenv = "0.15.0"
+lazy_static = "1.4.0"
 "mosquitto-sys" = {path = "/Users/arshid/Downloads/mosquitto-sys-master"}
 mysql = "23.0.1"
 
