@@ -9,7 +9,7 @@ Mosquitto authentication and ACL (Access control list) checking plugin. It is wo
 Download **mosquitto-auth.so** file and load .conf file as follows
 ```mosquitto -c mosquitto.conf```
 
-**[Download]**([dd](https://phpbolt.com/wp-content/uploads/2023/03/mosquitto-auth.zip))
+**[Download](https://phpbolt.com/wp-content/uploads/2023/03/mosquitto-auth.zip)**
 
 The mosquitto.conf file
 ```plugin path/to/mosquitto-auth.so```
