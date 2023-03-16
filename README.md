@@ -1,7 +1,7 @@
 
 # Mosquitto Dynamic Security Plugin
 
-Mosquitto authentication and ACL (Access control list (ACL) checking plugin. It is working based on MYSQL database.
+Mosquitto authentication and ACL (Access control list) checking plugin. It is working based on MYSQL database.
 ## Configuration
 
 #### How to install?
