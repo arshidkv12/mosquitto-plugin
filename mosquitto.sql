@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.11
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 15, 2023 at 03:58 AM
--- Server version: 8.0.12
--- PHP Version: 8.2.3
+-- Host: localhost:3306
+-- Generation Time: Mar 21, 2023 at 04:46 AM
+-- Server version: 10.3.38-MariaDB-cll-lve
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mosquitto`
+-- Database: `cipherco_mosquitto`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +33,7 @@ CREATE TABLE `acls` (
   `username` varchar(255) NOT NULL,
   `topic` varchar(255) NOT NULL,
   `rw` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `acls`
@@ -50,17 +51,16 @@ INSERT INTO `acls` (`id`, `username`, `topic`, `rw`) VALUES
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `super` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `super`) VALUES
-(1, 'user', 'PBKDF2$sha256$901$C+m2yUATSgIswiZr$Fwg8kzCTQU2HFctI4DKt8FglKgEocgnG', 1),
-(2, 'arshid', '2', 1);
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'user', 'PBKDF2$sha256$901$C+m2yUATSgIswiZr$Fwg8kzCTQU2HFctI4DKt8FglKgEocgnG'),
+(2, 'arshid', '2');
 
 --
 -- Indexes for dumped tables
