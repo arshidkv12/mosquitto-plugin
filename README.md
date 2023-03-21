@@ -15,7 +15,7 @@ The mosquitto.conf file
 
 ```plugin path/to/mosquitto-auth.so```
 
-#### Configure database
+#### Configure the MySQL Database
 
 Download mosquitto.sql file and import to your mysql by phpmyadmin. Then create .env file and add database credentials.
 
