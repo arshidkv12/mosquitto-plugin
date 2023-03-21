@@ -12,6 +12,7 @@ Download **mosquitto-auth.so** file and load .conf file as follows
 **[Download](https://phpbolt.com/wp-content/uploads/2023/03/mosquitto-auth.zip)**
 
 The mosquitto.conf file
+
 ```plugin path/to/mosquitto-auth.so```
 
 #### Configure database
