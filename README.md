@@ -43,7 +43,9 @@ ACL: Add access details acls table.
 
 
 
+
 ## How To Test? 
+Download [mosquitto.sql](https://github.com/arshidkv12/mosquitto-plugin/blob/main/mosquitto.sql) then import it by phpmyadmin. 
 
 Step 1: ```mosquitto -c mosquitto.conf```
 
