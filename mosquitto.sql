@@ -59,8 +59,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'user', 'PBKDF2$sha256$901$C+m2yUATSgIswiZr$Fwg8kzCTQU2HFctI4DKt8FglKgEocgnG'),
-(2, 'arshid', '2');
+(1, 'user', 'Pass'),
+(2, 'arshid', 'Pass@123');
 
 --
 -- Indexes for dumped tables
