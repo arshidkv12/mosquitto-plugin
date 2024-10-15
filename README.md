@@ -29,7 +29,7 @@ DB_PASSWORD="Pass"
 
 ## Documentation
 
-Authentication is working based on MYSQL users table. This plugin is checking username and password. Add username and password in users table.
+Authentication is working based on MYSQL users table. This plugin is checking username and password. Add username and password in the users table.
 
 ACL: Add access details acls table.
 
@@ -42,3 +42,11 @@ ACL: Add access details acls table.
 | rw      | 8      | UNSUBSCRIBE|
 
 
+
+## How To Test? 
+
+Step 1: ```mosquitto -c mosquitto.conf```
+
+Step 2: Open the new terminal then enter `mosquitto_sub -t "test/su" -u arshid -P Pass@123`
+ 
+Step 3: Open the new terminal then enter `mosquitto_pub -t "test/su" -m "This is a message !" -u arshid -P Pass@123` 
