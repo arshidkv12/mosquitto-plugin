@@ -40,7 +40,7 @@ CREATE TABLE `acls` (
 --
 
 INSERT INTO `acls` (`id`, `username`, `topic`, `rw`) VALUES
-(1, 'arshid', 'test/su', 0);
+(1, 'arshid', 'test/su', 9);
 
 -- --------------------------------------------------------
 
