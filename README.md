@@ -17,7 +17,7 @@ The mosquitto.conf file
 
 #### Configure the MySQL Database
 
-Download mosquitto.sql file and import to your mysql by phpmyadmin. Then create .env file and add database credentials.
+Download mosquitto.sql file and import to your mysql by phpmyadmin. Then create `.env` file in root folder (mosquitto executing folder) and add database credentials.
 
 ``` 
 DB_HOST=localhost
