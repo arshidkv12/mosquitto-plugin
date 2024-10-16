@@ -15,7 +15,7 @@ The mosquitto.conf file
 
 ```plugin path/to/mosquitto-auth.so```
 
-Feel free to PM: https://ciphercoin.com/contact 
+Feel free to PM: https://ciphercoin.com/contact. 
 I can help you to configure. 
 
 #### Configure the MySQL Database
