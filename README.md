@@ -19,16 +19,29 @@ Move ```mosquitto-auth/linux-64/mosquitto_auth.so``` to ```/etc/mosquitto/mosqui
 
 Then edit `mosquitto.conf` file from `/etc/mosquitto/`
 
-Add the following code.
+Add the following code in **/etc/mosquitto/mosquitto.conf** file.
 
-```plugin /etc/mosquitto/mosquitto-auth.so```
+### The mosquitto.conf file
 
-Feel free to PM: https://ciphercoin.com/contact. 
-I can help you to configure. 
+```
+plugin /etc/mosquitto/mosquitto-auth.so
+listener 1883
+```
+
+### How to edit the environment (.env) file location? 
+Edit systemd Linux services environment .env file location. 
+Enter the following code in the terminal.
+
+```sudo systemctl edit mosquitto```
+
+```
+[Service]
+EnvironmentFile=/etc/mosquitto/.env
+```
 
 #### Configure the MySQL Database
 
-Download mosquitto.sql file and import it to your mysql by phpmyadmin. Then create `.env` file in root folder (mosquitto executing folder) and add database credentials.
+Download **mosquitto.sql** file and import it to your mysql by phpmyadmin. Then add database credentials in **/etc/mosquitto/.env** file.
 
 ``` 
 DB_HOST=localhost
@@ -37,6 +50,9 @@ DB_DATABASE=mosquitto
 DB_USERNAME=root
 DB_PASSWORD="Pass"
 ```
+
+Feel free to PM: https://ciphercoin.com/contact. 
+I can help you to configure. 
 
 ## Documentation
 
