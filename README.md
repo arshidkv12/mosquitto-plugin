@@ -11,9 +11,17 @@ Download **mosquitto-auth.so** file and load .conf file as follows
 
 **[Download](https://phpbolt.com/wp-content/uploads/2023/03/mosquitto-auth.zip)**
 
-The mosquitto.conf file
+Move ```mosquitto-auth/linux-64/mosquitto_auth.so``` to ```/etc/mosquitto/mosquitto_auth.so```
 
-```plugin path/to/mosquitto-auth.so```
+
+```sudo chown mosquitto:mosquitto /etc/mosquitto/mosquitto_auth.so```    
+```sudo chmod 755 /etc/mosquitto/mosquitto_auth.so```
+
+Then edit `mosquitto.conf` file from `/etc/mosquitto/`
+
+Add the following code.
+
+```plugin /etc/mosquitto/mosquitto-auth.so```
 
 Feel free to PM: https://ciphercoin.com/contact. 
 I can help you to configure. 
