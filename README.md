@@ -1,5 +1,5 @@
 
-# Mosquitto Dynamic Security Plugin
+# Mosquitto Dynamic Security Plugin (Mosquitto Auth Plugin - Rust)
 
 Mosquitto authentication and ACL (Access control list) checking plugin. It is working based on MYSQL database.
 ## Configuration
