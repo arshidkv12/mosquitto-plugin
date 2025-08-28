@@ -2,6 +2,9 @@
 # Mosquitto Dynamic Security (Mosquitto Auth Plugin)
 
 Mosquitto authentication and ACL (Access control list) checking plugin. It is working based on MYSQL database.
+
+Feel free to email me at info@mailmug.net — I’m available to customize `mosquitto-plugin` for you.
+
 ## Configuration
 
 #### How to install?
